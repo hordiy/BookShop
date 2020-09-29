@@ -5,6 +5,8 @@ import { Card, Table, Image, ButtonGroup, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faList, faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 
+import { BOOKS_API } from '../constants/request-constants.js'
+
 import axios from 'axios';
 
 export default class BookList extends Component {
@@ -21,7 +23,7 @@ export default class BookList extends Component {
     }
 
     findAllBooks() {
-        axios.get("http://localhost:8080/books")
+        axios.get(BOOKS_API)
             .then(response => response.data)
             .then((data) => {
                 this.setState({books: data})
